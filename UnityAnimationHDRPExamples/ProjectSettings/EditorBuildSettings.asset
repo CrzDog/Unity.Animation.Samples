@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Examples/AnimationController/AnimationControllerSample.unity
+    guid: df56f997e27c4da4dbdb2b02cdbbb3b1
+  - enabled: 1
+    path: Assets/Scenes/Examples/AnimationController/AnimationControllerSample/Spawner.unity
+    guid: 4acf174a72356fc45bc244c521152253
   m_configObjects: {}
