@@ -1,0 +1,20 @@
+{
+    "name": "Unity.DataFlowGraph",
+    "references": [
+        "Unity.Collections",
+        "Unity.DataFlowGraph.Library",
+        "Unity.Burst",
+        "Unity.Entities",
+        "Unity.Jobs",
+        "Unity.Mathematics"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
