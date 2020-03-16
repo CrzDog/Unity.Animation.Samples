@@ -150,12 +150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79ae37598176f54db2f2c136f6bed84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigPrefab: {fileID: 3931961467685454312, guid: d91944323b45ed741a742550703eff6b,
+  RigPrefab: {fileID: 6572284492210955462, guid: f904e1ff77b83a444a3a199d9361a415,
     type: 3}
-  GraphPrefab: {fileID: -208535775157845907, guid: c5a4b54df1b512c45a44f3adac64a598,
+  GraphPrefab: {fileID: 8183339472826493482, guid: fffa19ac740829547a276bdf483c8e9b,
     type: 3}
-  CountX: 10
-  CountY: 10
+  CountX: 1
+  CountY: 1
 --- !u!4 &2062020436
 Transform:
   m_ObjectHideFlags: 0

@@ -216,16 +216,16 @@ public class AnimationControllerSystem : SampleSystemBase<
         set.SendMessage(data.MixerWalkNode, DirectionMixerNode.SimulationPorts.Clip0, setup.WalkShortLeftClip);
         set.SendMessage(data.MixerWalkNode, DirectionMixerNode.SimulationPorts.Clip1, setup.WalkLongLeftClip);
         set.SendMessage(data.MixerWalkNode, DirectionMixerNode.SimulationPorts.Clip2, setup.WalkStraightClip);
-        set.SendMessage(data.MixerWalkNode, DirectionMixerNode.SimulationPorts.Clip3, setup.WalkLongRightClip);
-        set.SendMessage(data.MixerWalkNode, DirectionMixerNode.SimulationPorts.Clip4, setup.WalkShortRightClip);
+        // set.SendMessage(data.MixerWalkNode, DirectionMixerNode.SimulationPorts.Clip3, setup.WalkLongRightClip);
+        // set.SendMessage(data.MixerWalkNode, DirectionMixerNode.SimulationPorts.Clip4, setup.WalkShortRightClip);
 
         set.SendMessage(data.MixerJogNode, DirectionMixerNode.SimulationPorts.Rig, rig);
         set.SendMessage(data.MixerJogNode, DirectionMixerNode.SimulationPorts.ClipConfiguration, setup.Configuration);
         set.SendMessage(data.MixerJogNode, DirectionMixerNode.SimulationPorts.Clip0, setup.JogShortLeftClip);
         set.SendMessage(data.MixerJogNode, DirectionMixerNode.SimulationPorts.Clip1, setup.JogLongLeftClip);
         set.SendMessage(data.MixerJogNode, DirectionMixerNode.SimulationPorts.Clip2, setup.JogStraightClip);
-        set.SendMessage(data.MixerJogNode, DirectionMixerNode.SimulationPorts.Clip3, setup.JogLongRightClip);
-        set.SendMessage(data.MixerJogNode, DirectionMixerNode.SimulationPorts.Clip4, setup.JogShortRightClip);
+        //set.SendMessage(data.MixerJogNode, DirectionMixerNode.SimulationPorts.Clip3, setup.JogLongRightClip);
+        //set.SendMessage(data.MixerJogNode, DirectionMixerNode.SimulationPorts.Clip4, setup.JogShortRightClip);
 
         set.SendMessage(data.MixerSpeedNode, MixerNode.SimulationPorts.Rig, rig);
         set.SendMessage(data.RootMotionNode, RootMotionNode.SimulationPorts.Rig, rig);

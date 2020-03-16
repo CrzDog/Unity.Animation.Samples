@@ -189,6 +189,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnimationControllerInput
       objectReference: {fileID: 0}
+    - target: {fileID: 4755532014285473177, guid: 976a4d5e952b2a242a14a3c8782d0baf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976a4d5e952b2a242a14a3c8782d0baf, type: 3}
 --- !u!1 &313761473
@@ -1048,3 +1053,72 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &7249979318145311423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425227, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249979318053425229, guid: af40880e3ae4bc245b453b762b03208a,
+        type: 3}
+      propertyPath: m_Name
+      value: UnityChanControllerInput
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: af40880e3ae4bc245b453b762b03208a, type: 3}
