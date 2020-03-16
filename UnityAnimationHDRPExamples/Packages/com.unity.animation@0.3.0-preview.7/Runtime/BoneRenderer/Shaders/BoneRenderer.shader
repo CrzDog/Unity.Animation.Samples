@@ -6,8 +6,6 @@ Shader "Hidden/BoneRenderer"
     }
     SubShader
     {
-        Tags{ "RenderPipeline" = "UniversalPipeline"}
-
         Lighting Off
         Blend SrcAlpha OneMinusSrcAlpha
         ZWrite On
@@ -17,8 +15,8 @@ Shader "Hidden/BoneRenderer"
 
         Pass
         {
-            // Name "ForwardOnly"
-            Tags { "LightMode" = "UniversalForward" }
+            Name "ForwardLit"
+            Tags{"LightMode" = "UniversalForward" "Queue" = "Transparent" }
 
             CGPROGRAM
             #pragma vertex vert
