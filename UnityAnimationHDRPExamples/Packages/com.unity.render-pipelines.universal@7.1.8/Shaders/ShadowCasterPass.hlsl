@@ -11,6 +11,10 @@ struct Attributes
     float4 positionOS   : POSITION;
     float3 normalOS     : NORMAL;
     float2 texcoord     : TEXCOORD0;
+#ifdef _VERTEX_SKINNING
+    float4 weights : BLENDWEIGHTS;
+    uint4 indices : BLENDINDICES;
+#endif
     UNITY_VERTEX_INPUT_INSTANCE_ID
 };
 
@@ -22,8 +26,24 @@ struct Varyings
 
 float4 GetShadowPositionHClip(Attributes input)
 {
+#ifdef _VERTEX_SKINNING
+    float3 skinnedPositionOS = float3(0, 0, 0);
+    float3 skinnedNormalOS = float3(0, 0, 0);
+    for (int i = 0; i < 4; ++i)
+    {
+        float3x4 skinMatrix = _SkinMatrices[input.indices[i] + (int)_SkinMatricesOffset];
+        float3 vtransformed = mul(skinMatrix, input.positionOS);
+        float3 ntransformed = mul(skinMatrix, float4(input.normalOS, 0));
+
+        skinnedPositionOS += vtransformed * input.weights[i];
+        skinnedNormalOS += ntransformed * input.weights[i];
+    }
+    float3 positionWS = TransformObjectToWorld(skinnedPositionOS);
+    float3 normalWS = TransformObjectToWorldNormal(skinnedNormalOS);
+#else
     float3 positionWS = TransformObjectToWorld(input.positionOS.xyz);
     float3 normalWS = TransformObjectToWorldNormal(input.normalOS);
+#endif
 
     float4 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, _LightDirection));
 
