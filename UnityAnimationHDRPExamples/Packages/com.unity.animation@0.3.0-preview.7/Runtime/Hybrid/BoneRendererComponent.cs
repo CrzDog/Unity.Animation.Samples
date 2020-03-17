@@ -15,6 +15,7 @@ namespace Unity.Animation.Hybrid
         public Material BoneMaterial;
 
         public RigComponent RigComponent;
+        public string RootBoneName;
         [Tooltip("The bones to render. Bones without a connection in the joints' list are not rendered for now.")]
         public Transform[] Transforms;
     }

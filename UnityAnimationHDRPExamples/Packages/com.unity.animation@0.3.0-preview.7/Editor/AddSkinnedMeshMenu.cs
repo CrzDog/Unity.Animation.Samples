@@ -26,6 +26,8 @@ namespace Unity.Animation.Editor {
                     skinnedMesh.SkinnedMeshRenderer = child;
                 }
             }
+
+            EditorUtility.SetDirty(go);
         }
     }
 }
