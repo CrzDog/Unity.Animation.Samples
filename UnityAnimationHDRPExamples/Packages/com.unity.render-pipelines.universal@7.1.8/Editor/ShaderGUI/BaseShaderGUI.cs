@@ -418,7 +418,7 @@ namespace UnityEditor
                 CoreUtils.SetKeyword(material, "_NORMALMAP", material.GetTexture("_BumpMap"));
             // Vertex Skinning
             if (material.HasProperty("_VertexSkinning")) {
-                CoreUtils.SetKeyword(material, "_VERTEX_SKINNING", material.GetFloat("_VertexSkinning") == 0.0f);
+                CoreUtils.SetKeyword(material, "_VERTEX_SKINNING", material.GetFloat("_VertexSkinning") == 1.0f);
             }
             
             // Shader specific keyword functions

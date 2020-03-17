@@ -10,7 +10,7 @@ struct Attributes
     float4 tangentOS     : TANGENT;
     float2 texcoord      : TEXCOORD0;
     float2 lightmapUV    : TEXCOORD1;
-#if 0
+#ifdef _VERTEX_SKINNING
     float4 weights : BLENDWEIGHTS;
     uint4 indices : BLENDINDICES;
 #endif
@@ -84,28 +84,32 @@ Varyings LitPassVertexSimple(Attributes input)
     UNITY_TRANSFER_INSTANCE_ID(input, output);
     UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-// #ifdef _VERTEX_SKINNING
-#if 0
+#ifdef _VERTEX_SKINNING
+        float3 skinnedPositionOS = float3(0, 0, 0);
+        float3 skinnedNormalOS = float3(0, 0, 0);
+        float3 skinnedTangentOS = float3(0, 0, 0);
         for (int i = 0; i < 4; ++i)
         {
             float3x4 skinMatrix3x4 = _SkinMatrices[input.indices[i] + (int)_SkinMatricesOffset];
-            float4x4 skinMatrix4x4 = float4x4(
-             skinMatrix3x4._m00, skinMatrix3x4._m01, skinMatrix3x4._m02, skinMatrix3x4._m03,
-             skinMatrix3x4._m10, skinMatrix3x4._m11, skinMatrix3x4._m12, skinMatrix3x4._m13,
-             skinMatrix3x4._m20, skinMatrix3x4._m21, skinMatrix3x4._m22, skinMatrix3x4._m23,
-             0, 0, 0, 1);
-            float4 vtransformed = mul(skinMatrix4x4, input.positionOS);
-            float4 ntransformed = mul(skinMatrix4x4, float4(input.normalOS, 0));
-            float4 ttransformed = mul(skinMatrix4x4, input.tangentOS);
+            // float4x4 skinMatrix4x4 = float4x4(
+            //  skinMatrix3x4._m00, skinMatrix3x4._m01, skinMatrix3x4._m02, skinMatrix3x4._m03,
+            //  skinMatrix3x4._m10, skinMatrix3x4._m11, skinMatrix3x4._m12, skinMatrix3x4._m13,
+            //  skinMatrix3x4._m20, skinMatrix3x4._m21, skinMatrix3x4._m22, skinMatrix3x4._m23,
+            //  0, 0, 0, 1);
+            float3 vtransformed = mul(skinMatrix3x4, input.positionOS);
+            float3 ntransformed = mul(skinMatrix3x4, float4(input.normalOS, 0));
+            float3 ttransformed = mul(skinMatrix3x4, input.tangentOS);
     
-            input.positionOS += vtransformed * input.weights[i];
-            input.normalOS += ntransformed * input.weights[i];
-            input.tangentOS += ttransformed * input.weights[i];
+            skinnedPositionOS += vtransformed * input.weights[i];
+            skinnedNormalOS += ntransformed * input.weights[i];
+            skinnedTangentOS += ttransformed * input.weights[i];
         }
-#endif
-
+        VertexPositionInputs vertexInput = GetVertexPositionInputs(skinnedPositionOS);
+        VertexNormalInputs normalInput = GetVertexNormalInputs(input.normalOS, float4(skinnedTangentOS, input.tangentOS.w));
+#else
     VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
     VertexNormalInputs normalInput = GetVertexNormalInputs(input.normalOS, input.tangentOS);
+#endif
     half3 viewDirWS = GetCameraPositionWS() - vertexInput.positionWS;
     half3 vertexLight = VertexLighting(vertexInput.positionWS, normalInput.normalWS);
     half fogFactor = ComputeFogFactor(vertexInput.positionCS.z);
